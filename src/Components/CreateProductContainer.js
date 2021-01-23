@@ -1,32 +1,33 @@
-import React, {useState} from 'react'
-import {CreateProduct} from "./CreateProduct";
-
-
+import React, { useState } from "react";
+import { CreateProduct } from "./CreateProduct";
+import { addProduct } from "../state";
 
 export const CreateProductContainer = (props) => {
-    const [name,setName] = useState('');
-    const [priority,setPriority] = useState(1);
-    const [isRanOut,setRanOut] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
+  const [localChanges, setLocalChanges] = useState({
+    name: "",
+    priority: 0,
+    state: null,
+  });
 
-    const handleChange = (e) => {
-        if(e.target.type == 'radio'){
-            setRanOut(e.target.value)
-            e.target.checked = true;
-            console.log(e.target.value)
-            return 0;
-        }
-        if(e.target.name === "name"){
-            setName(e.target.value)
-
-        }else{
-            setPriority(e.target.value);
-        }
-
-    }
-    const handleSubmit = () => {
-
-        props.addProduct([...props.list,{id:props.list.length+100+'%'+priority,name,priority,state:isRanOut}])
-
-    }
-    return <CreateProduct handleChange={handleChange} handleSubmit={handleSubmit}/>
-}
+  const handleChange = (e) => {
+    setLocalChanges({ ...localChanges, [e.target.name]: e.target.value });
+  };
+  const checkData = () => {
+    let { name, priority, state } = localChanges;
+    debugger;
+    return name.length > 0 && priority > 0 && priority < 6 && state;
+  };
+  const handleSubmit = (e) => {
+    if (checkData()) return props.dispatch(addProduct(localChanges));
+    e.preventDefault();
+    setErrorMessage("All fields must be filled in");
+  };
+  return (
+    <CreateProduct
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      errorMessage={errorMessage}
+    />
+  );
+};
