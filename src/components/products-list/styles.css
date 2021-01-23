@@ -1,0 +1,34 @@
+.empty-list{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.listWrapper{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.listItem{
+    border-bottom: 1px solid grey ;
+    padding: 10px;
+}
+.listItem_header{
+    margin-bottom:5px;
+}
+.listItem_priority{
+    margin-bottom: 10px;
+}
+.removeBtn{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    float: right;
+}
+.removeBtn:hover{
+    color:white;
+    background: red;
+}

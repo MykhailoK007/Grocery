@@ -1,19 +1,13 @@
-import "./App.css";
 import React, { useReducer, useState } from "react";
-import { GroceryList } from "./Components/GroceryList";
-import { NavLink, Route, Switch } from "react-router-dom";
-import { CreateProductContainer } from "./Components/CreateProductContainer";
+import { GroceryList } from "./components/products-list/GroceryList";
+import { NavLink, Route } from "react-router-dom";
+import { CreateProductContainer } from "./components/create-product/CreateProductContainer";
 import { initialState, reducer } from "../src/state";
+import "./App.css";
+
 function App() {
-  const [list, setList] = useState([
-    { id: 1, name: "Bread", priority: 1, state: "Ran out" },
-    { id: 2, name: "Button", priority: 1, state: "Have" },
-  ]);
-  const [sortBy, setSortBy] = useState("");
   const [state, dispatch] = useReducer(reducer, initialState);
-  const handleChange = (e) => {
-    setSortBy(e.target.value);
-  };
+
   return (
     <div>
       <header className="header">Grocery List</header>
@@ -22,8 +16,8 @@ function App() {
           <NavLink to="/create">
             <input type="button" className="createProductBtn" value="+" />
           </NavLink>
-          <GroceryList state={state} dispatch={dispatch} />
         </div>
+        <GroceryList state={state} dispatch={dispatch} />
       </Route>
       <Route path="/create" exact>
         <CreateProductContainer state={state} dispatch={dispatch} />

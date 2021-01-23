@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CreateProduct } from "./CreateProduct";
-import { addProduct } from "../state";
+import { addProduct } from "../../state";
 
 export const CreateProductContainer = (props) => {
   const [errorMessage, setErrorMessage] = useState("");

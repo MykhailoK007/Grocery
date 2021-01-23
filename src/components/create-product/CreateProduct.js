@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./styles.css";
 
 export const CreateProduct = (props) => {
   return (
-    <form action="" className="form_container">
+    <form className="form_container">
       <h1>Create Product</h1>
-      <div>{props.errorMessage}</div>
+      <div className="error-message">{props.errorMessage}</div>
       <div>
-        <span>Name</span>
+        <span>Name: </span>
         <input
           type="text"
           value={props.name}
@@ -16,7 +17,7 @@ export const CreateProduct = (props) => {
         />
       </div>
       <div className="form_priority">
-        <span>Priority</span>
+        <span>Priority: </span>
         <input
           type="number"
           value={props.priority}

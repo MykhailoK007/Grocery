@@ -1,6 +1,6 @@
 import React from "react";
 import { ListItem } from "./ListItem";
-
+import "./styles.css";
 export const GroceryList = (props) => {
   const removeItem = (id) => {
     props.setList(props.productList.filter((product) => product.id != id));
@@ -9,6 +9,9 @@ export const GroceryList = (props) => {
   let { state } = props;
   return (
     <div className="listWrapper">
+      {!state.productsList.length && (
+        <div className="empty-list">List is empty</div>
+      )}
       {!!state.productsList.length &&
         state.productsList.map((product) => {
           return (
@@ -22,7 +25,6 @@ export const GroceryList = (props) => {
             />
           );
         })}
-      {!state.productsList.length && <div>List is empty</div>}
     </div>
   );
 };
