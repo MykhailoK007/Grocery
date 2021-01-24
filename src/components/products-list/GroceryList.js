@@ -1,19 +1,20 @@
-import React from "react";
-import { ListItem } from "./ListItem";
-import "./styles.css";
-export const GroceryList = (props) => {
-  const removeItem = (id) => {
-    props.setList(props.productList.filter((product) => product.id != id));
-    console.log(props.productList);
+import React, { useRef } from 'react';
+import { ListItem } from './ListItem';
+import './styles.css';
+import { removeProduct } from '../../state';
+export const GroceryList = props => {
+  let item = useRef();
+  const removeItem = id => {
+    props.dispatch(removeProduct(id));
   };
   let { state } = props;
   return (
-    <div className="listWrapper">
+    <div className='listWrapper'>
       {!state.productsList.length && (
-        <div className="empty-list">List is empty</div>
+        <div className='empty-list'>List is empty</div>
       )}
       {!!state.productsList.length &&
-        state.productsList.map((product) => {
+        state.productsList.map(product => {
           return (
             <ListItem
               name={product.name}

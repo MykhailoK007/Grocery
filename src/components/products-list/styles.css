@@ -13,12 +13,18 @@
 .listItem{
     border-bottom: 1px solid grey ;
     padding: 10px;
+    color: white;
+    background: rgba(5,5,5,0.5);
 }
 .listItem_header{
     margin-bottom:5px;
+    text-align: center;
 }
 .listItem_priority{
     margin-bottom: 10px;
+    text-align:center;
+}
+.BtnWrapper{
 }
 .removeBtn{
     width: 20px;
@@ -27,8 +33,23 @@
     border: none;
     border-radius: 2px;
     float: right;
+
+}
+.removeItem{
+    animation: removeProduct;
+    animation-duration: 0.5s;
 }
 .removeBtn:hover{
     color:white;
     background: red;
 }
+@keyframes removeProduct {
+    from{
+        height: 50px;
+    }
+    to{
+        height: 0;
+    }
+}
+
+
