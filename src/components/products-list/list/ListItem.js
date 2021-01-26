@@ -21,6 +21,7 @@ export const ListItem = props => {
         Priority:
         {props.priority}
       </span>
+      <div className='date'>{props.created}</div>
     </div>
   );
 };

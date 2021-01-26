@@ -15,7 +15,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         productsList: [
           ...state.productsList,
-          { ...action.data, id: state.productsList.length + 1 },
+          {
+            ...action.data,
+            id: state.productsList.length + 1,
+            created: createDateFormat(),
+          },
         ],
       };
     case REMOVE_PRODUCT:
@@ -69,4 +73,9 @@ export const setFilterMiddleware = filterState => {
     case '4':
       return { type: STATE_IS_LOW_PRIORITY, isLowPriority: false };
   }
+};
+// Gets date and return as 19.01.2021
+const createDateFormat = () => {
+  const date = new Date();
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 };

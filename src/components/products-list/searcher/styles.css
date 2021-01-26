@@ -1,0 +1,12 @@
+.search-wrapper{
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+}
+.searcher{
+    width: 30%;
+    height: 30px;
+    background: rgba(5, 5, 5, 0.5);
+    color:white;
+    padding: 0 10px;
+}
