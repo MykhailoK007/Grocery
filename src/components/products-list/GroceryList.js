@@ -1,20 +1,19 @@
 import React, { useRef } from 'react';
 import { ListItem } from './ListItem';
-import './styles.css';
 import { removeProduct } from '../../state';
+import './styles.css';
+
 export const GroceryList = props => {
-  let item = useRef();
   const removeItem = id => {
     props.dispatch(removeProduct(id));
   };
-  let { state } = props;
+  const { state } = props;
+  let list = state.localList.length ? state.localList : state.productsList;
   return (
     <div className='listWrapper'>
-      {!state.productsList.length && (
-        <div className='empty-list'>List is empty</div>
-      )}
-      {!!state.productsList.length &&
-        state.productsList.map(product => {
+      {!list.length && <div className='empty-list'>List is empty</div>}
+      {list.length &&
+        list.map(product => {
           return (
             <ListItem
               name={product.name}

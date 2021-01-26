@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 
-export const CreateProduct = (props) => {
+export const CreateProduct = props => {
   return (
     <form className='form_container'>
       <h1>Create Product</h1>

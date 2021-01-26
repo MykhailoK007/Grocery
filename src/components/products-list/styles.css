@@ -1,55 +1,52 @@
-.empty-list{
-    text-align: center;
-    color: white;
-    font-size: 20px;
+.empty-list {
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
-.listWrapper{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+.listWrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
-.listItem{
-    border-bottom: 1px solid grey ;
-    padding: 10px;
-    color: white;
-    background: rgba(5,5,5,0.5);
+.listItem {
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  color: white;
+  background: rgba(5, 5, 5, 0.5);
 }
-.listItem_header{
-    margin-bottom:5px;
-    text-align: center;
+.listItem_header {
+  margin-bottom: 5px;
+  text-align: center;
 }
-.listItem_priority{
-    margin-bottom: 10px;
-    text-align:center;
+.listItem_priority {
+  margin-bottom: 10px;
+  text-align: center;
 }
-.BtnWrapper{
+.BtnWrapper {
 }
-.removeBtn{
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    border: none;
-    border-radius: 2px;
-    float: right;
-
+.removeBtn {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  float: right;
 }
-.removeItem{
-    animation: removeProduct;
-    animation-duration: 0.5s;
+.removeItem {
+  animation: removeProduct;
+  animation-duration: 0.5s;
 }
-.removeBtn:hover{
-    color:white;
-    background: red;
+.removeBtn:hover {
+  color: white;
+  background: red;
 }
 @keyframes removeProduct {
-    from{
-        height: 50px;
-    }
-    to{
-        height: 0;
-    }
+  from {
+    height: 50px;
+  }
+  to {
+    height: 0;
+  }
 }
-
-
