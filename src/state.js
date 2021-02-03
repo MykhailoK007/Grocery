@@ -28,10 +28,10 @@ export const reducer = (state = initialState, action) => {
         productsList:
           state.productsList.length === 1
             ? []
-            : [...state.productsList.filter(id => id !== action.id)],
+            : state.productsList.filter(el => el.id !== action.id),
+        localList: state.localList.filter(el => el.id !== action.id),
       };
     case DEFAULT:
-      debugger;
       return {
         ...state,
         localList: [],
@@ -40,16 +40,15 @@ export const reducer = (state = initialState, action) => {
       const filterBy = action.isRanOut ? 'Ran out' : 'Have';
       return {
         ...state,
-        localList: [...state.productsList.filter(el => el.state === filterBy)],
+        localList: state.productsList.filter(el => el.state === filterBy),
       };
     case STATE_IS_LOW_PRIORITY:
-      debugger;
       return {
         ...state,
         localList: [...state.productsList].sort((a, b) =>
           action.isLowPriority
-            ? a.priority - b.priority
-            : b.priority - a.priority
+            ? b.priority - a.priority
+            : a.priority - b.priority
         ),
       };
     default:
@@ -74,8 +73,14 @@ export const setFilterMiddleware = filterState => {
       return { type: STATE_IS_LOW_PRIORITY, isLowPriority: false };
   }
 };
+
 // Gets date and return as 19.01.2021
 const createDateFormat = () => {
   const date = new Date();
-  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  debugger;
+  return `${day < 10 ? '0' + day : day}.${
+    month < 10 ? '0' + month : month
+  }.${date.getFullYear()}`;
 };

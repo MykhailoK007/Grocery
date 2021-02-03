@@ -2,8 +2,8 @@ import React from 'react';
 import { ListItem } from './ListItem';
 import { removeProduct, setFilterMiddleware } from '../../../state';
 import { NavLink } from 'react-router-dom';
-import './styles.css';
 import { Searcher } from '../searcher/Searcher';
+import './styles.css';
 
 export const GroceryList = props => {
   const { state } = props;
@@ -16,7 +16,7 @@ export const GroceryList = props => {
   };
   return (
     <div>
-      {list.length > 1 && <Searcher filterList={filterList} />}
+      {list.length && <Searcher filterList={filterList} />}
       <div className='createProductBtnWrapper'>
         <NavLink to='/create'>
           <input type='button' className='createProductBtn' value='+' />
